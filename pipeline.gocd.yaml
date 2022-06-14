@@ -28,3 +28,20 @@ pipelines:
                 - running build
                 command: echo
                 run_if: passed
+    stages:
+    - deploy:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: true
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          run-deplloy-to-deployments:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - this is running deployments
+                command: echo
+                run_if: passed
