@@ -44,3 +44,17 @@ pipelines:
                 - this is running deployments
                 command: echo
                 run_if: passed
+    - run-kubectl-from-agent:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: true
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          run-deplloy-to-deployments:
+            timeout: 0
+            tasks:
+            - exec:
+                command: kubectl
+                run_if: passed
