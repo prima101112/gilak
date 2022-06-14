@@ -28,7 +28,6 @@ pipelines:
                 - running build
                 command: echo
                 run_if: passed
-    stages:
     - deploy:
         fetch_materials: true
         keep_artifacts: false
