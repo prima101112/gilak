@@ -33,6 +33,8 @@ func main() {
 	} else {
 		//generate here
 		envex := os.Getenv("EXAMPLE_ENV")
+		log.Println("============================")
+		log.Println(envex)
 		f, err := os.Create("/tmp/generatefromenv.html")
 		if err != nil {
 			log.Printf("failed create file %s", err)
