@@ -10,9 +10,8 @@ import (
 )
 
 func main() {
-	fmt.Println(len(os.Args), os.Args)
 	type Options struct {
-		isServer bool `short:"s" long:"is-server" description:"define as server or generator"`
+		IsServer bool `short:"s" long:"is-server" description:"define as server or generator"`
 	}
 	var argsval Options
 	args, err := flags.ParseArgs(&argsval, os.Args)
@@ -22,7 +21,7 @@ func main() {
 
 	log.Printf("args from parse %s", args)
 
-	if argsval.isServer {
+	if argsval.IsServer {
 		http.HandleFunc("/", Root)
 		http.HandleFunc("/ping", Pong)
 		http.HandleFunc("/checkfile", CheckFile)
