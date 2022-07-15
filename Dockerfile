@@ -25,4 +25,4 @@ COPY --from=build-env /src/ser /app/ser
 RUN /app/ser -s false
 
 
-ENTRYPOINT [ "/app/ser","-s","true" ]
+ENTRYPOINT [ "/app/ser" ]
