@@ -21,6 +21,8 @@ func main() {
 
 	log.Printf("args from parse %s", args)
 
+	log.Println(argsval.IsServer)
+
 	if argsval.IsServer {
 		http.HandleFunc("/", Root)
 		http.HandleFunc("/ping", Pong)

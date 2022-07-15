@@ -22,7 +22,7 @@ RUN apk --no-cache add git gcc bash
 # copy golang binary
 WORKDIR /app
 COPY --from=build-env /src/ser /app/ser
-RUN /app/ser -s false
+RUN /app/ser
 
 
 ENTRYPOINT [ "/app/ser" ]
