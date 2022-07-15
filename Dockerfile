@@ -16,7 +16,8 @@ RUN env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ser /src/main.go
 
 # final stage build using pure alpine image
 FROM alpine:3.16
-LABEL maintainer="Mekari Engineering Productivity Team <people@mekari.com>"
+LABEL maintainer="prima"
+RUN apk --no-cache add git gcc bash
 
 # copy golang binary
 WORKDIR /app
