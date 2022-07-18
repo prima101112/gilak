@@ -18,11 +18,11 @@ RUN env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ser /src/main.go
 FROM alpine:3.16
 LABEL maintainer="prima"
 RUN apk --no-cache add git gcc bash
-ARG EXAMPLE_ENV
 
 # copy golang binary
 WORKDIR /app
 COPY --from=build-env /src/ser /app/ser
+COPY --from=build-env /src/.env /app/.env
 RUN /app/ser
 
 
