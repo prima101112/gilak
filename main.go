@@ -7,9 +7,19 @@ import (
 	"os"
 
 	"github.com/jessevdk/go-flags"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	sl := os.Getenv("SPECIAL_LEVEL")
+	st := os.Getenv(" SPECIAL_TYPE")
+	log.Println(sl, st)
+
 	type Options struct {
 		IsServer bool `short:"s" long:"is-server" description:"define as server or generator"`
 	}
